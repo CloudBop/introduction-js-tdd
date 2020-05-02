@@ -28,4 +28,16 @@ describe('findUserByEmail fn ', () => {
 
     assert.equal(response.message, 'User found successfully');
   });
+  // test rejected promise...
+  // perhaps easiest with returning promise
+  it('rejects with error is user not found (using return promise)', () => {
+    return findUserByEmail('x@y.com').then(
+      () => {
+        assert.fail('Expected findUserByEmail fn to reject');
+      },
+      error => {
+        assert.equal(error.message, 'User with email: x@y.com was not found');
+      }
+    );
+  });
 });
