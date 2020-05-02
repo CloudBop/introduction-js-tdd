@@ -40,4 +40,23 @@ describe('findUserByEmail fn ', () => {
       }
     );
   });
+  //
+  //
+  //
+  it('finds user by id (using aysnc/await)', async () => {
+    const response = await findUserById(1);
+
+    assert.equal(response.message, 'User found successfully');
+  });
+  //
+  it('rejects with error is user not found (using return promise)', () => {
+    return findUserById(6).then(
+      () => {
+        assert.fail('Expected findUserByEmail fn to reject');
+      },
+      error => {
+        assert.equal(error.message, 'User with id: 6 was not found');
+      }
+    );
+  });
 });
