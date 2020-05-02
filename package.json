@@ -6,11 +6,13 @@
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm test",
-    "coverage2": "nyc mocha"
+    "coverage2": "nyc mocha",
+    "jest": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^25.5.4",
     "mocha": "^7.1.2",
     "nyc": "^15.0.1"
   }
